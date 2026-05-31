@@ -2,8 +2,8 @@ import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
-TOKEN = "8919187732:AAFcf03zyqFUr5vI4ysP-aCe4kxRvv3IU3I"
-
+import os
+TOKEN = os.environ.get("BOT_TOKEN")
 logging.basicConfig(level=logging.INFO)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
