@@ -18,8 +18,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         f"👋 Привет, {user.first_name}!\n\n"
         f"⚡ *MOONBIT* — тапай и зарабатывай!\n\n"
-        f"🎮 Нажми играть и начни добывать монеты\n"
-        f"👥 Приглашай друзей — получай бонусы",
+        f"🎮 Нажми играть и начни добывать монеты",
         reply_markup=InlineKeyboardMarkup(keyboard),
         parse_mode="Markdown"
     )
