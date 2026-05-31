@@ -18,8 +18,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         f"👋 Привет, {user.first_name}!\n\n"
         f"⚡ *MOONBIT* — тапай и зарабатывай!\n\n"
-        f"🪙 Тапай монету и копи монеты\n"
-        f"🚀 Прокачивай улучшения\n"
+        f"🪙 Копи монеты и прокачивай бота\n"
         f"👥 Приглашай друзей — получай бонусы",
         reply_markup=InlineKeyboardMarkup(keyboard),
         parse_mode="Markdown"
@@ -50,18 +49,15 @@ async def back_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("🛒 Магазин", callback_data="shop")],
     ]
     await query.edit_message_text(
-        f"⚡ *MOONBIT* — тапай и зарабатывай!",
+        "⚡ *MOONBIT* — тапай и зарабатывай!",
         reply_markup=InlineKeyboardMarkup(keyboard),
         parse_mode="Markdown"
     )
 
-def main():
+if __name__ == "__main__":
     app = Application.builder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(shop_handler, pattern="^shop$"))
     app.add_handler(CallbackQueryHandler(back_handler, pattern="^back$"))
     print("Бот запущен!")
     app.run_polling(drop_pending_updates=True)
-
-if __name__ == "__main__":
-    main()
